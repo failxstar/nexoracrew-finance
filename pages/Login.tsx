@@ -9,12 +9,12 @@ interface LoginProps {
 
 export const Login: React.FC<LoginProps> = ({ onLogin }) => {
   const [isLogin, setIsLogin] = useState(true);
-  
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   const [position, setPosition] = useState('');
-  
+
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [isOffline, setIsOffline] = useState(false);
@@ -43,9 +43,9 @@ export const Login: React.FC<LoginProps> = ({ onLogin }) => {
           setLoading(false);
           return;
         }
-        
+
         const { user: newUser, error: regError } = await registerUser({ name, email, password, position });
-        
+
         if (newUser) {
           onLogin(newUser);
         } else {
@@ -66,7 +66,7 @@ export const Login: React.FC<LoginProps> = ({ onLogin }) => {
       <div className="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none select-none overflow-hidden">
         <h1 className="text-[12rem] font-black text-white whitespace-nowrap animate-pulse">NEXORACREW</h1>
       </div>
-      
+
       <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-900/20 via-slate-950 to-slate-950"></div>
 
       <div className="w-full max-w-md bg-slate-900/80 backdrop-blur-md border border-slate-800 p-8 rounded-2xl shadow-2xl relative z-10">
@@ -83,10 +83,10 @@ export const Login: React.FC<LoginProps> = ({ onLogin }) => {
         </div>
 
         {isOffline && (
-            <div className="mb-6 p-3 bg-amber-500/10 border border-amber-500/20 text-amber-400 rounded-lg text-xs text-center flex items-center justify-center gap-2">
-                <WifiOff size={14} />
-                <span>Running in Offline Demo Mode (Local Storage)</span>
-            </div>
+          <div className="mb-6 p-3 bg-amber-500/10 border border-amber-500/20 text-amber-400 rounded-lg text-xs text-center flex items-center justify-center gap-2">
+            <WifiOff size={14} />
+            <span>Running in Offline Demo Mode (Local Storage)</span>
+          </div>
         )}
 
         {error && (
@@ -102,8 +102,8 @@ export const Login: React.FC<LoginProps> = ({ onLogin }) => {
                 <label className="text-xs font-bold text-slate-400 uppercase">Full Name</label>
                 <div className="relative">
                   <UserIcon className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500" size={18} />
-                  <input 
-                    type="text" 
+                  <input
+                    type="text"
                     value={name}
                     onChange={e => setName(e.target.value)}
                     className="w-full bg-slate-800 border border-slate-700 rounded-lg py-3 pl-10 pr-4 text-white placeholder-slate-600 focus:outline-none focus:border-blue-500 transition-colors"
@@ -116,8 +116,8 @@ export const Login: React.FC<LoginProps> = ({ onLogin }) => {
                 <label className="text-xs font-bold text-slate-400 uppercase">Position</label>
                 <div className="relative">
                   <Briefcase className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500" size={18} />
-                  <input 
-                    type="text" 
+                  <input
+                    type="text"
                     value={position}
                     onChange={e => setPosition(e.target.value)}
                     className="w-full bg-slate-800 border border-slate-700 rounded-lg py-3 pl-10 pr-4 text-white placeholder-slate-600 focus:outline-none focus:border-blue-500 transition-colors"
@@ -132,8 +132,8 @@ export const Login: React.FC<LoginProps> = ({ onLogin }) => {
             <label className="text-xs font-bold text-slate-400 uppercase">Email Address</label>
             <div className="relative">
               <Mail className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500" size={18} />
-              <input 
-                type="email" 
+              <input
+                type="email"
                 value={email}
                 onChange={e => setEmail(e.target.value)}
                 className="w-full bg-slate-800 border border-slate-700 rounded-lg py-3 pl-10 pr-4 text-white placeholder-slate-600 focus:outline-none focus:border-blue-500 transition-colors"
@@ -146,8 +146,8 @@ export const Login: React.FC<LoginProps> = ({ onLogin }) => {
             <label className="text-xs font-bold text-slate-400 uppercase">Password</label>
             <div className="relative">
               <Lock className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500" size={18} />
-              <input 
-                type="password" 
+              <input
+                type="password"
                 value={password}
                 onChange={e => setPassword(e.target.value)}
                 className="w-full bg-slate-800 border border-slate-700 rounded-lg py-3 pl-10 pr-4 text-white placeholder-slate-600 focus:outline-none focus:border-blue-500 transition-colors"
@@ -156,8 +156,8 @@ export const Login: React.FC<LoginProps> = ({ onLogin }) => {
             </div>
           </div>
 
-          <button 
-            type="submit" 
+          <button
+            type="submit"
             disabled={loading}
             className={`w-full text-white font-bold py-3.5 rounded-lg transition-all shadow-lg shadow-blue-600/20 flex items-center justify-center mt-6 ${loading ? 'bg-slate-700 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700'}`}
           >
@@ -167,7 +167,7 @@ export const Login: React.FC<LoginProps> = ({ onLogin }) => {
         </form>
 
         <div className="mt-6 text-center">
-          <button 
+          <button
             onClick={() => { setIsLogin(!isLogin); setError(''); }}
             className="text-slate-400 hover:text-white text-sm transition-colors"
           >

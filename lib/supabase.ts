@@ -4,8 +4,8 @@ import { createClient } from '@supabase/supabase-js';
 // ⚠️ ACTION REQUIRED: PASTE YOUR SUPABASE CREDENTIALS HERE
 // ------------------------------------------------------------------
 
-const SUPABASE_URL = ''; // e.g. https://xyz.supabase.co
-const SUPABASE_KEY = ''; // e.g. eyJhbGciOiJIUzI1NiIsInR5c...
+const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL || '';
+const SUPABASE_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY || '';
 
 // Helper to check if properly configured
 export const isSupabaseConfigured = () => {

@@ -14,6 +14,7 @@ const App: React.FC = () => {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
 
+
   useEffect(() => {
     const checkUser = async () => {
       const storedUser = await getCurrentUser();
